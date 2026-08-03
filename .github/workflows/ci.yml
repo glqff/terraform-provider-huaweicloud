@@ -58,7 +58,7 @@ jobs:
           merge_base="$(git merge-base HEAD "origin/${{ github.base_ref }}")"
           echo "Using merge base: ${merge_base}"
           golangci-lint run \
-            --out-format=github-actions \
+            --out-format=colored-line-number \
             --new-from-rev="${merge_base}" \
             ./...
 

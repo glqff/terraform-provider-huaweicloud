@@ -458,7 +458,7 @@ func buildDriverConfigParamter(d *schema.ResourceData) job.JobConfigs {
 	if v, ok := d.GetOk("config.0.retry_type"); ok {
 		retryConfigs = append(retryConfigs, job.Input{
 			Name:  "retryJobConfig.retryJobType",
-			Value: fmt.Sprintf("%s", v),
+			Value: fmt.Sprint(v),
 		})
 	}
 
@@ -466,7 +466,7 @@ func buildDriverConfigParamter(d *schema.ResourceData) job.JobConfigs {
 	if v, ok := d.GetOk("config.0.group_name"); ok {
 		groupConfigs = append(groupConfigs, job.Input{
 			Name:  "groupJobConfig.groupName",
-			Value: fmt.Sprintf("%s", v),
+			Value: fmt.Sprint(v),
 		})
 	}
 
@@ -527,21 +527,21 @@ func buildThrottlingConfigParamter(d *schema.ResourceData) []job.Input {
 	if v, ok := d.GetOk("config.0.throttling_dirty_write_to_link"); ok {
 		throttlingConfigs = append(throttlingConfigs, job.Input{
 			Name:  "throttlingConfig.writeToLink",
-			Value: fmt.Sprintf("%s", v),
+			Value: fmt.Sprint(v),
 		})
 	}
 
 	if v, ok := d.GetOk("config.0.throttling_dirty_write_to_bucket"); ok {
 		throttlingConfigs = append(throttlingConfigs, job.Input{
 			Name:  "throttlingConfig.obsBucket",
-			Value: fmt.Sprintf("%s", v),
+			Value: fmt.Sprint(v),
 		})
 	}
 
 	if v, ok := d.GetOk("config.0.throttling_dirty_write_to_directory"); ok {
 		throttlingConfigs = append(throttlingConfigs, job.Input{
 			Name:  "throttlingConfig.dirtyDataDirectory",
-			Value: fmt.Sprintf("%s", v),
+			Value: fmt.Sprint(v),
 		})
 	}
 
@@ -566,7 +566,7 @@ func buildSchedulerConfigsParamter(d *schema.ResourceData) []job.Input {
 		if v, ok := d.GetOk("config.0.scheduler_cycle_type"); ok {
 			schedulerConfigs = append(schedulerConfigs, job.Input{
 				Name:  "schedulerConfig.cycleType",
-				Value: fmt.Sprintf("%s", v),
+				Value: fmt.Sprint(v),
 			})
 		}
 
@@ -580,28 +580,28 @@ func buildSchedulerConfigsParamter(d *schema.ResourceData) []job.Input {
 		if v, ok := d.GetOk("config.0.scheduler_run_at"); ok {
 			schedulerConfigs = append(schedulerConfigs, job.Input{
 				Name:  "schedulerConfig.runAt",
-				Value: fmt.Sprintf("%s", v),
+				Value: fmt.Sprint(v),
 			})
 		}
 
 		if v, ok := d.GetOk("config.0.scheduler_start_date"); ok {
 			schedulerConfigs = append(schedulerConfigs, job.Input{
 				Name:  "schedulerConfig.startDate",
-				Value: fmt.Sprintf("%s", v),
+				Value: fmt.Sprint(v),
 			})
 		}
 
 		if v, ok := d.GetOk("config.0.scheduler_stop_date"); ok {
 			schedulerConfigs = append(schedulerConfigs, job.Input{
 				Name:  "schedulerConfig.stopDate",
-				Value: fmt.Sprintf("%s", v),
+				Value: fmt.Sprint(v),
 			})
 		}
 
 		if v, ok := d.GetOk("config.0.scheduler_disposable_type"); ok {
 			schedulerConfigs = append(schedulerConfigs, job.Input{
 				Name:  "schedulerConfig.disposableType",
-				Value: fmt.Sprintf("%s", v),
+				Value: fmt.Sprint(v),
 			})
 		}
 	}
